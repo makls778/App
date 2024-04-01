@@ -34,5 +34,9 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
+    public void MainPageMove(View v){
+        Intent intent = new Intent(this,MainPage.class);
+        startActivity(intent);
+    }
 
 }

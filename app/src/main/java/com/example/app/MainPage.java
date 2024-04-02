@@ -26,24 +26,24 @@ public class MainPage extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main_page);
 
-        // Ініціалізація текстового поля та кнопки
+
         balanceTextView = findViewById(R.id.balance_text_view);
         rechargeButton = findViewById(R.id.recharge_button);
 
-        // Отримати баланс абонента
+
         String balance = getBalance();
         balanceTextView.setText(balance);
 
-        // Слухач кнопки поповнення рахунку
+
         rechargeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Відобразити вікно поповнення рахунку
+
                 showRechargeDialog(MainPage.this);
             }
         });
 
-        // Додавання відступів для системних панелей
+
         //ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
           //  Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             //v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -52,23 +52,19 @@ public class MainPage extends AppCompatActivity {
     }
 
     private String getBalance() {
-        // Замінити на реальний метод отримання балансу
+
         return "Баланс: 100 грн";
     }
 
     private void showRechargeDialog(Context context) {
-        // Створити AlertDialog
+
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
         builder.setTitle("Поповнити рахунок")
                 .setView(R.layout.activity_dialog_recharge)
                 .setPositiveButton("Поповнити", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // Отримати суму поповнення
-                        // ...
-                        // Здійснити поповнення рахунку
-                        // ...
-                        // Оновити баланс
+
                         String balance = getBalance();
                         balanceTextView.setText(balance);
                     }

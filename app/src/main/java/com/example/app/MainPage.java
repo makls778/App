@@ -77,4 +77,12 @@ public class MainPage extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void TarifMove(View v){
+        Intent intent = new Intent(this,Tarifs.class);
+        startActivity(intent);
+    }
+    public void Employee(View v){
+        Intent intent = new Intent(this,Employee.class);
+        startActivity(intent);
+    }
 }

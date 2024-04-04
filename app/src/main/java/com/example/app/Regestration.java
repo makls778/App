@@ -79,10 +79,19 @@ public class Regestration extends AppCompatActivity {
     }
 
     public boolean isValidLogin(String login) {
-        String loginPattern = "^[a-zA-Z0-9]{6,24}$";
-        return Pattern.matches(loginPattern, login);
+        // Перевірка довжини
+        if (login.length() != 10) {
+            return false;
+        }
+        // Перевірка на цифри
+        for (char c : login.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return false;
+            }
+        }
+        // Логін дійсний
+        return true;
     }
-
     private void pushToMenu() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
@@ -96,12 +105,11 @@ public class Regestration extends AppCompatActivity {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString("email", email);
         editor.putString("password", pass);
-        editor.putString("login", login);
+        editor.putString("phone", login);
         editor.putString("name", name);
         editor.putString("surname", surname);
         editor.apply();
     }
-
     public void backMain(View v){
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);

@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText phoneL;
     private EditText passwordL;
 
-    private SharedPreferences sharedPreferences; // SharedPreferences for storing user data
+    private SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
 
         sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
 
-        buttonRL = findViewById(R.id.buttonRL); // Assuming buttonRL is the register button
+        buttonRL = findViewById(R.id.buttonRL);
         button_login = findViewById(R.id.button_login);
         phoneL = findViewById(R.id.phoneL);
-        passwordL = findViewById(R.id.passwordL); // Assuming passwordL is the password field
+        passwordL = findViewById(R.id.passwordL);
 
         button_login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,12 +50,11 @@ public class MainActivity extends AppCompatActivity {
                     String savedPassword = sharedPreferences.getString("password", "");
 
                     if (phone.equals(savedPhone) && password.equals(savedPassword)) {
-                        // Login successful
+
                         Toast.makeText(MainActivity.this, "Login successful!", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(MainActivity.this, MainPage.class);
                         startActivity(intent);
-                        // Intent intent = new Intent(MainActivity.this, LoggedInActivity.class);
-                        // startActivity(intent);
+
                     } else {
                         Toast.makeText(MainActivity.this, "Invalid phone number or password!", Toast.LENGTH_SHORT).show();
                     }
@@ -67,22 +66,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean isValidLogin(String login) {
-        // Перевірка довжини
+
         if (login.length() != 10) {
             return false;
         }
-        // Перевірка на цифри
+
         for (char c : login.toCharArray()) {
             if (!Character.isDigit(c)) {
                 return false;
             }
         }
-        // Логін дійсний
+
         return true;
     }
 
     public boolean isValidPassword(String password) {
-        // Use the same password validation from your registration activity here
+
         Pattern PASSWORD_PATTERN
                 = Pattern.compile(
                 "[a-zA-Z0-9\\!\\@\\#\\$]{8,24}");
@@ -95,10 +94,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    // No need for MainPageMove function as there's no "MainPage" class mentioned
+
 
     private void checkForSavedLogin() {
-        // You can optionally add a function to check for saved login credentials
-        // in SharedPreferences and automatically log the user in if they exist
+
     }
 }

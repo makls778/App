@@ -85,4 +85,8 @@ public class MainPage extends AppCompatActivity {
         Intent intent = new Intent(this,Employee.class);
         startActivity(intent);
     }
+    public void Profile(View v){
+        Intent intent = new Intent(this,Profile.class);
+        startActivity(intent);
+    }
 }

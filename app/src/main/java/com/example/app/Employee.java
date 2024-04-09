@@ -14,18 +14,18 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class Employee extends AppCompatActivity {
 
-    private ListView listView; // Змінна для списку тарифів
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_employee); // Замініть на ваш файл розмітки
+        setContentView(R.layout.activity_employee);
 
-        // Ініціалізація списку тарифів
-        listView = findViewById(R.id.list_viewE); // Ідентифікатор вашого ListView
 
-        // Створити список тарифів (замініть на реальні дані)
+        listView = findViewById(R.id.list_viewE);
+
+
         String[] tariffs = new String[]{
                 "Працівник 1: Hana Burns, Customer Service Representative",
                 "Працівник 2: August Arroyo, Sales Representative",
@@ -40,14 +40,14 @@ public class Employee extends AppCompatActivity {
                 "Працівник 11:Madisyn Nielsen Chief, Executive Officer"
         };
 
-        // Створити адаптер для ListView
+
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_list_item_1, tariffs);
 
-        // Встановити адаптер для ListView
+
         listView.setAdapter(adapter);
 
-        // Додавання відступів для системних панелей (необов'язково)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);

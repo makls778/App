@@ -79,17 +79,17 @@ public class Regestration extends AppCompatActivity {
     }
 
     public boolean isValidLogin(String login) {
-        // Перевірка довжини
+
         if (login.length() != 10) {
             return false;
         }
-        // Перевірка на цифри
+
         for (char c : login.toCharArray()) {
             if (!Character.isDigit(c)) {
                 return false;
             }
         }
-        // Логін дійсний
+
         return true;
     }
     private void pushToMenu() {

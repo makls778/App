@@ -54,13 +54,13 @@ import androidx.core.view.WindowInsetsCompat;
             addbut.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // Додати новий елемент
+
                     String newTariff = "Новий тариф";
                     String[] newTarifs = new String[tariffs.length + 1];
                     System.arraycopy(tariffs, 0, newTarifs, 0, tariffs.length);
                     newTarifs[newTarifs.length - 1] = newTariff;
 
-                    // Оновити adapter
+
                     adapter[0] = new ArrayAdapter<>(Tarifs.this,
                             android.R.layout.simple_list_item_1, newTarifs);
                     listView.setAdapter(adapter[0]);
@@ -70,17 +70,17 @@ import androidx.core.view.WindowInsetsCompat;
             delbut.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    // Видалити вибраний елемент
+
                     int position = listView.getCheckedItemPosition();
                     if (position != ListView.INVALID_POSITION) {
-                        // Створити AlertDialog
+
                         AlertDialog.Builder builder = new AlertDialog.Builder(Tarifs.this);
                         builder.setTitle("Підтвердження видалення")
                                 .setMessage("Ви дійсно хочете видалити цей елемент?")
                                 .setPositiveButton("Так", new DialogInterface.OnClickListener() {
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
-                                        // Видалити елемент
+
                                         String[] newTarifs = new String[tariffs.length - 1];
                                         System.arraycopy(tariffs, 0, newTarifs, 0, position);
                                         System.arraycopy(tariffs, position + 1, newTarifs, position, tariffs.length - position - 1);
@@ -102,7 +102,10 @@ import androidx.core.view.WindowInsetsCompat;
             Intent intent = new Intent(this,MainPage.class);
             startActivity(intent);
         }
+
+
     }
+
 
 
 
